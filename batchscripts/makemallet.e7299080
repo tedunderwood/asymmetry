@@ -1,0 +1,28 @@
+----------------------------------------
+Begin Torque Prologue (Mon Jun 18 04:04:12 2018)
+Job ID:           7299080.cc-mgmt1.campuscluster.illinois.edu
+Username:         tunder
+Group:            ichass
+Job Name:         makemallet
+Limits:           walltime=08:00:00,nodes=1:ppn=20,neednodes=1:ppn=20
+Job Queue:        ichass
+Account:          ichass
+Nodes:            ccc0033
+End Torque Prologue
+----------------------------------------
+Labels = 
+   ../code/asymmetry/finaldata
+----------------------------------------
+Begin Torque Epilogue (Mon Jun 18 04:45:08 2018)
+Job ID:           7299080.cc-mgmt1.campuscluster.illinois.edu
+Username:         tunder
+Group:            ichass
+Job Name:         makemallet
+Session:          55878
+Limits:           walltime=08:00:00,nodes=1:ppn=20,neednodes=1:ppn=20
+Resources:        cput=00:30:56,vmem=71793608kb,walltime=00:40:56,mem=13306256kb,energy_used=0
+Job Queue:        ichass
+Account:          ichass
+Nodes:            ccc0033
+End Torque Epilogue
+----------------------------------------
