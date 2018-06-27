@@ -10,3 +10,16 @@ In other words, long lists of stopwords don't really improve the underlying part
 We have accordingly written a Python script (**translate_keys.py**) that quite simply filters the list of topic keys by rejecting extremely common or rare words (unless all the words in the topic are extremely common or rare).
 
 The original list of keys is in **keys.txt**; the translated list is in **filtered_keys.txt**.
+
+topic distributions
+-------------------
+
+Much of the analysis we perform relies on "a doctopics file"--a table that indicates the distribution of each volume across the topics in the model.
+
+These files run ~400MB--too large to fit comfortably in a github repo. So for the moment, we are simply providing Dropbox links here to download the files.
+
+The raw doctopics file produced by MALLET: [https://www.dropbox.com/s/qsuhh1yiqd118jj/doctopics.txt?dl=0](https://www.dropbox.com/s/qsuhh1yiqd118jj/doctopics.txt?dl=0)
+
+To make exploratory data analysis easier, we translate the raw doctopics file into a pandas-friendly version. The key change here is to simplify the row index, making it identical to "docid"s in our metadata by removing paths and reunifying some long volumes that got split into 2-3 parts for modeling. The translation is done by **translate_doctopics.py**
+
+The "translated" doctopics file: [https://www.dropbox.com/s/ljc3iauco9jm53d/doc_topics.tsv?dl=0](https://www.dropbox.com/s/ljc3iauco9jm53d/doc_topics.tsv?dl=0)
