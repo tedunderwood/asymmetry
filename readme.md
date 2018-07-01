@@ -5,6 +5,8 @@ Richard So and Ted Underwood. "Temporal asymmetries" is our cautious name for a 
 
 We're asking whether the same measures can be used to illuminate literary history across a much longer timeline (1800-2009). We also seek to validate these measures of asymmetry by correlating them with familiar social measures of prominence and influence. If we establish that there is a correlation, we may start using language a bit more vivid than "temporal asymmetry."
 
+Initial hypotheses for this experiment [have been preregistered with OSF.](https://osf.io/zuq9a/register/5771ca429ad5a1020de2872e)
+
 meta
 ----
 
