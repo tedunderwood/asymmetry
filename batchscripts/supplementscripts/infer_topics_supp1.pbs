@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l walltime=10:00:00
+#PBS -l nodes=1:ppn=20
+#PBS -N infer_topics
+#PBS -q ichass
+#PBS -m be
+cd $PBS_O_WORKDIR
+module load java/1.7.75
+bin/mallet infer-topics --inferencer ../code/asymmetry/finalfic/inferencer.bin --input ../code/asymmetry/supplementmodel1/supp1.mallet --output-doc-topics ../code/asymmetry/supplementmodel1/supp1_doctopics.txt
