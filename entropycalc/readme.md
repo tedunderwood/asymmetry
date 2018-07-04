@@ -20,4 +20,6 @@ The description above covers the main workflow, but I found I needed to repeat t
 
 **calculate_20_kld.py** calculates novelty/transience/resonance on a 20c-specific model, again because I was getting suspicious about the "novelty mountain" effect. It calls **kld_calc_worker_20c.py**
 
+**calculate_19_kld.py** calculates novelty etc on a 19c-specific model. But it *also* diverges from previous scripts in replacing the matrix with cosine calculations.
+
 Ideally, I would refactor the workflow to generalize and stop spinning off variants like this. But I'm still in exploration mode and don't yet know what needs to be generalized.

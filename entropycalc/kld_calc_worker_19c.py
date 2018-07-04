@@ -40,7 +40,7 @@ def get_kld_timelines(package):
     timeradii2check = [10, 25, 40]
 
     for idx in range(start, end):
-        row = meta.iloc[idx, : ]
+        row = meta.loc[idx, : ]
         date = int(row['inferreddate'])
         doc1 = row['docid']
         author1 = row['author']
@@ -72,7 +72,7 @@ def get_kld_timelines(package):
                 if author1 == author2:
                     continue
                     # We don't check KLD btw vols with the same author.
-
+                
                 if doc2 not in data.index:
                     continue
 

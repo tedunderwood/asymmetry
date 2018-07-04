@@ -13,7 +13,7 @@ timeradii2check = [10, 25, 40]
 chunksize = 2500
 
 meta = pd.read_csv('../meta/filtered19csample.tsv', sep = '\t')
-data = pd.read_csv('../model/19th_doc_topics.tsv', sep = '\t', index_col = 'docid')
+data = pd.read_csv('../19thmodel/19th_doc_topics.tsv', sep = '\t', index_col = 'docid')
 
 totalvols = meta.shape[0]
 
@@ -24,7 +24,7 @@ if endposition > totalvols:
 
 print(startposition, endposition)
 
-outputname = 'seg' + str(startposition)
+outputname = '19thseg' + str(startposition)
 cosinefile = '../results/' + outputname + 'cosines.tsv'
 kldsfile = '../results/' + outputname + 'klds.tsv'
 summaryfile = '../results/' + outputname + 'summary.tsv'
@@ -78,7 +78,7 @@ for result in resultlist:
     with open(cosinefile, mode = 'a', encoding = 'utf-8') as f:
         for docid, costuple in cosines4vols.items():
             backward, forward = costuple
-            outrow = docid + '\t' + backward + '\t' + forward + '\n'
+            outrow = docid + '\t' + str(backward) + '\t' + str(forward) + '\n'
             f.write(outrow)
 
     with open(kldsfile, mode = 'a', encoding = 'utf-8') as f:
