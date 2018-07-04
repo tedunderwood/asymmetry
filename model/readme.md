@@ -23,3 +23,14 @@ The raw doctopics file produced by MALLET: [https://www.dropbox.com/s/qsuhh1yiqd
 To make exploratory data analysis easier, we translate the raw doctopics file into a pandas-friendly version. The key change here is to simplify the row index, making it identical to "docid"s in our metadata by removing paths and reunifying some long volumes that got split into 2-3 parts for modeling. The translation is done by **translate_doctopics.py**
 
 The "translated" doctopics file: [https://www.dropbox.com/s/ljc3iauco9jm53d/doc_topics.tsv?dl=0](https://www.dropbox.com/s/ljc3iauco9jm53d/doc_topics.tsv?dl=0)
+
+variant models
+---------------
+
+Here I am describing files that you won't yet see in the repo (because they're too large), but that I need to keep track of locally.
+
+The generic "doc_topics.tsv" file described above is based on a model that used all 38,583 volumes in the random sample, and only those volumes. This model has 500 topics, produced using the optimize-priors option in MALLET.
+
+There's also a 19th_doc_topics.tsv and 20th_doc_topics.tsv, produced using volumes from 1800 - 1914 and 1900-2009, respectively. The 20c one uses 500 topics; the 19c one (for no particular reason) 400.
+
+Finally, there's a unified_doc_topics.tsv, which combines the 38,583 randomly-selected volumes with 873 volumes in **../supplement1/lastnamesupp1meta.tsv** (mostly volumes from the reviewed/random prestige fiction dataset.) This model has 400 topics, produced using optimized priors, and a total of 39,456 rows.
