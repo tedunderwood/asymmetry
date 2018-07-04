@@ -22,4 +22,6 @@ The description above covers the main workflow, but I found I needed to repeat t
 
 **calculate_19_kld.py** calculates novelty etc on a 19c-specific model. But it *also* diverges from previous scripts in replacing the matrix with cosine calculations.
 
+**calculate_unified_kld.py** is designed to work with the new unified corpus. This entails some changes to field names (e.g. earliestdate rather than inferreddate). I'm also being very cautious about self-comparison, excluding any pairs of works by authors with the same last name. Also, cosine calculations are inherited from the 19th-century script.
+
 Ideally, I would refactor the workflow to generalize and stop spinning off variants like this. But I'm still in exploration mode and don't yet know what needs to be generalized.
