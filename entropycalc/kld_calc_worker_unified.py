@@ -67,8 +67,8 @@ def get_kld_timelines(package):
         if floor < 1800:
             floor = 1800
         ceiling = date + 51
-        if date > 1914:
-            date = 1914
+        if ceiling > 2009:
+            ceiling = 2009
 
         for yr in range (floor, ceiling):
             offset = yr - date

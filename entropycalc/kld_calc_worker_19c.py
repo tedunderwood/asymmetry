@@ -53,8 +53,8 @@ def get_kld_timelines(package):
         if floor < 1800:
             floor = 1800
         ceiling = date + 51
-        if date > 1914:
-            date = 1914
+        if ceiling > 1914:
+            ceiling = 1914
 
         for yr in range (floor, ceiling):
             offset = yr - date
@@ -72,7 +72,7 @@ def get_kld_timelines(package):
                 if author1 == author2:
                     continue
                     # We don't check KLD btw vols with the same author.
-                
+
                 if doc2 not in data.index:
                     continue
 

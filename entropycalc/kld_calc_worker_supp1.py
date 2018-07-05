@@ -8,11 +8,13 @@ def get_kld_timelines(package):
     Calculates Kullback-Leibler divergence forward and back in time
     for a "segment" of rows in the metadata frame.
 
-    Accepts as its argument a 3-tuple that should be:
+    Accepts as its argument a 5-tuple that should be:
 
-    1 metadata DataFrame
-    2 doc-topic proportions (data), as a DataFrame indexed by docid
-    3 segment, a 2-tuple (startposition, endposition)
+    1 metadata DataFrame for the supplement
+    2 metadata DataFrame for the main meta (the modeled volumes)
+    3 doctopic proportions for the supplement
+    4 doctopic proportions for mainmeta
+    5 segment, a 2-tuple (startposition, endposition)
 
     Returns three objects:
 
@@ -32,12 +34,10 @@ def get_kld_timelines(package):
     transience and resonance see Barron et al. (2018).
     '''
 
-    meta, segment = package
+    suppmeta, mainmeta, suppdata, maindata, segment = package
     start, end = segment
 
-    data = pd.read_csv('../model/idfvectors.tsv', sep = '\t', index_col = 'docid')
-
-    matrixwidth = meta.shape[0]
+    matrixwidth = mainmeta.shape[0]
 
     matrix = dict()
     klds4vols = dict()
@@ -46,11 +46,16 @@ def get_kld_timelines(package):
     fractions2check = [1.0, 0.05, 0.025]
     timeradii2check = [10, 25, 40]
 
+    ctr = 0
     for idx in range(start, end):
-        row = meta.iloc[idx, : ]
-        date = int(row['inferreddate'])
+        ctr += 1
+        if ctr % 10 == 1:
+            print(ctr)
+
+        row = suppmeta.iloc[idx, : ]
+        date = int(row['earliestdate'])
         doc1 = row['docid']
-        author1 = row['author']
+        author1 = row['lastname']
 
         klds4year = dict()
         matrixrow = np.zeros(matrixwidth)
@@ -61,8 +66,8 @@ def get_kld_timelines(package):
         if floor < 1800:
             floor = 1800
         ceiling = date + 51
-        if ceiling > 2009:
-            ceiling = 2009
+        if date > 2009:
+            date = 2009
 
         for yr in range (floor, ceiling):
             offset = yr - date
@@ -70,21 +75,21 @@ def get_kld_timelines(package):
             if offset == 0:
                 continue
 
-            thisyear = meta.loc[meta.inferreddate == yr, : ]
+            thisyear = mainmeta.loc[mainmeta.inferreddate == yr, : ]
 
             for idx2 in thisyear.index:
-                author2 = thisyear.loc[idx2, 'author']
+                author2 = thisyear.loc[idx2, 'lastname']
                 doc2 = thisyear.loc[idx2, 'docid']
                 position = thisyear.loc[idx2, 'position']
 
                 if author1 == author2:
                     continue
-                    # We don't check KLD btw vols with the same author.
+                    # We don't check KLD btw vols with the same last name.
 
-                if doc2 not in data.index:
+                if doc2 not in maindata.index:
                     continue
 
-                ent = entropy(data.loc[doc1, : ], data.loc[doc2, : ])
+                ent = entropy(suppdata.loc[doc1, : ], maindata.loc[doc2, : ])
                 # NB the order of the two arguments for this function
                 # matters! KL(a|b) ≠ KL(b|a).
 
