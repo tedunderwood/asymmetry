@@ -293,7 +293,7 @@ if __name__ == "__main__":
     # The root path where volumes are stored is hard-coded here:
 
     rootpath = '/Volumes/TARDIS/work/ef/fic/'
-    outfolder = '/Users/tunder/work/influencedata/'
+    outfolder = '/Users/tunder/work/influencesupp2/'
 
     # You will need to change that if you're using it on your own machine.
 
