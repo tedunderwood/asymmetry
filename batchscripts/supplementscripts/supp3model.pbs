@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l walltime=64:00:00
+#PBS -l nodes=1:ppn=20
+#PBS -N model3fiction
+#PBS -q ichass
+#PBS -m be
+cd $PBS_O_WORKDIR
+module load java/1.7.75
+bin/mallet train-topics --input ../code/asymmetry/supp3model/supp3fiction.mallet --num-threads 18 --num-topics 440 --num-iterations 1000 --num-top-words 100 --random-seed 99 --optimize-interval 25 --optimize-burn-in 50 --output-state ../code/asymmetry/supp3model/modelstate.gz --output-doc-topics ../code/asymmetry/supp3model/supp3_doctopics.txt --output-topic-keys ../code/asymmetry/supp3model/keys.txt --inferencer-filename ../code/asymmetry/supp3model/inferencer.bin --show-topics-interval 100

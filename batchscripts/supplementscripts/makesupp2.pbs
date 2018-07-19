@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l walltime=8:00:00
+#PBS -l nodes=1:ppn=20
+#PBS -N makemallet
+#PBS -q ichass
+#PBS -m be
+cd $PBS_O_WORKDIR
+module load java/1.7.75
+bin/mallet import-dir --input ../code/asymmetry/supp2alldata --output ../code/asymmetry/supp2model/supp2fiction.mallet --keep-sequence --token-regex '\p{L}[\p{L}\p{P}]*\p{L}|\p{L}'
