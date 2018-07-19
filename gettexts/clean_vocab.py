@@ -12,11 +12,11 @@ with open('minimalstopwords.txt', encoding = 'utf-8') as f:
     for line in f:
         stopwords.add(line.strip())
 
-sourcedir = 'influencedata/'
+sourcedir = '/Users/tunder/work/influencesupp3/'
 files = os.listdir(sourcedir)
 files = [x for x in files if x.endswith('.txt')]
 
-targetdir = 'data/'
+targetdir = '/Users/tunder/work/influencesupp3clean/'
 
 docfreq = Counter()
 ctr = 0
@@ -77,12 +77,12 @@ for fil in files:
     # not aggregated; if we added each line
     # we'd get pagefreq not docfreq.
 
-    for token in thisfilevocab:
-        docfreq[token] += 1
+#     for token in thisfilevocab:
+#         docfreq[token] += 1
 
 
-vocab = [x[0] for x in docfreq.most_common(30000)]
+# vocab = [x[0] for x in docfreq.most_common(30000)]
 
-with open('vocab.txt', mode = 'w', encoding = 'utf-8'):
-    for v in vocab:
-        f.write(v + '\n')
+# with open('vocab.txt', mode = 'w', encoding = 'utf-8'):
+#     for v in vocab:
+#         f.write(v + '\n')
