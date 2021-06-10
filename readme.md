@@ -1,6 +1,8 @@
 Temporal asymmetries in fiction
 ================================
 
+[![DOI](https://zenodo.org/badge/137904893.svg)](https://zenodo.org/badge/latestdoi/137904893)
+
 Ted Underwood and Richard Jean So. "Temporal asymmetries" is our cautious name for a project investigating the information-theoretic measures that [Barron et al (2018)](http://www.pnas.org/content/early/2018/04/16/1717729115) use to track innovation in French Revolutionary debates.
 
 We're asking whether the same measures can be used to illuminate literary history across a much longer timeline (1800-2009). We also seek to validate these measures of asymmetry by correlating them with familiar social measures of prominence and influence.
