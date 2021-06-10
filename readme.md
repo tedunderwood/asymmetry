@@ -7,7 +7,7 @@ We're asking whether the same measures can be used to illuminate literary histor
 
 Initial hypotheses for this experiment [have been preregistered with OSF.](https://osf.io/zuq9a/register/5771ca429ad5a1020de2872e)
 
-The project is ongoing and might lead to more than one publication, but this state/version of the repository is organized primarily to support "Can We Map Culture?" (currently under consideration at *The Journal of Cultural Analytics.*)
+The project is ongoing and might lead to more than one publication, but this state/version of the repository is organized primarily to support "Can We Map Culture?" (forthcoming at *The Journal of Cultural Analytics.*)
 
 The analysis and visualization scripts supporting that article in particular are gathered in the directory [```/mapculture.```](https://github.com/tedunderwood/asymmetry/tree/master/mapculture) But to understand how metadata was constructed, you may need to follow trails of breadcrumbs that lead from that directory to other parts of this repo.
 
